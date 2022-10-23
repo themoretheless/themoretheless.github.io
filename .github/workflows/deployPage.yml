@@ -59,11 +59,11 @@ jobs:
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
       
-    # Copy release/wwroot 
+    # Copy release/wwroot
     – name: Commit wwwroot to GitHub pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      BRANCH: page
-      FOLDER: release/wwwroot
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: page
+        FOLDER: release/wwwroot
    
