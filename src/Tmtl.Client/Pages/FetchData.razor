@@ -53,6 +53,12 @@ else
                 Summary = response.name,               
                 TemperatureC = (int)response.main.temp
             });
+
+        forecasts?.Add(new WeatherForecast
+            {
+                Summary = "dsfgdfg",
+                TemperatureC = 99
+            });
     }
 
     public class WeatherForecast
