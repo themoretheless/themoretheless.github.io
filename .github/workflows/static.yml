@@ -59,7 +59,6 @@ jobs:
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
       
-      
         
     # Copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
