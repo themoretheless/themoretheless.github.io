@@ -65,23 +65,10 @@ jobs:
       run: cp -avR release/wwwroot/* .
       
       
-    - name: Setup Pages
-      uses: actions/configure-pages@v2
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        # Upload entire repository
-        path: '.'
-      
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: deploy-to-github-pages
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    – name: Commit wwwroot to GitHub pages
+    uses: JamesIves/github-pages-deploy-action@3.7.1
+    with:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    BRANCH: page
+    FOLDER: release/wwwroot
    
