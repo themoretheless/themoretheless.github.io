@@ -70,7 +70,14 @@ jobs:
         # Upload entire repository
         path: '.'
       
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: release/wwwroot/index.html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
    
