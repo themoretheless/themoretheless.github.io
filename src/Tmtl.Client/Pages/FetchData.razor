@@ -37,11 +37,28 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private List<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/weather.json");
+
+        string apiKey = "d425a29534f177263efd9edb486b2976";
+        //  var response = await Http.GetFromJsonAsync<QueryResponse>($"https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={apiKey}");
+        var response = await Http.GetFromJsonAsync<WeatherModel>($"https://api.openweathermap.org/data/2.5/weather?q=Reutov&units=metric&appid={apiKey}");
+
+
+        forecasts?.Add(new WeatherForecast
+            {
+                Summary = response.name,               
+                TemperatureC = (int)response.main.temp
+            });
+
+        forecasts?.Add(new WeatherForecast
+            {
+                Summary = "dsfgdfg",
+                TemperatureC = 99
+            });
     }
 
     public class WeatherForecast
