@@ -23,15 +23,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create annotation for build error
-      run: echo "::error LKFJGLKJFGLKDLKFJLKDJG"
+      run: |
+        Write-Host Env:GITHUB_SERVER_URL: $Env:GITHUB_SERVER_URL
+        Write-Host Env:GITHUB_REPOSITORY: $Env:GITHUB_REPOSITORY 
     # Uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v3.1.0
     
-    - name: Checkout current repository
-      shell: pwsh
-      run: |
-        Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY        
-        git checkout main
+    # - name: Checkout current repository
+    #   shell: pwsh
+    #   run: |
+    #     Write-Host $Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY        
+    #     git checkout main
+        
     
     # Setup .NET Core SDK
     - name: Setup .NET Core SDK
