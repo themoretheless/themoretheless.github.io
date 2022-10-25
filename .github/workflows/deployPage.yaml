@@ -22,8 +22,8 @@ jobs:
     # Use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
     steps:
-     - name: Create annotation for build error
-        run: echo "::error LKFJGLKJFGLKDLKFJLKDJG"
+    - name: Create annotation for build error
+      run: echo "::error LKFJGLKJFGLKDLKFJLKDJG"
     # Uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v3.1.0
     
